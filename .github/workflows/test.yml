@@ -52,6 +52,14 @@ jobs:
         cd builddir
         meson test
 
+    - name: meson_install
+      run: |
+        source "$HOME/miniconda/etc/profile.d/conda.sh"
+        hash -r
+        conda activate test-environment
+        cd builddir
+        meson install
+
     - name: create_artifact
       uses: actions/upload-artifact@v4
       with:
