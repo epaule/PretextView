@@ -51,3 +51,11 @@ jobs:
         conda activate test-environment
         cd builddir
         meson test
+
+    - name: create_artifact
+      uses: actions/updload-artifact@v4
+      with:
+        name: PretextView.zip
+        path: app/*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
